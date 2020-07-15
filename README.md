@@ -1,5 +1,11 @@
-```bash
-yarn create electron-app photos --template=typescript-webpack
-```
+# Electron Base
 
-[How to create an electron-forge project with React, Typescript and HMR](https://dev.to/raphaelbadia/how-to-create-an-electron-forge-project-with-react-typescript-and-hmr-1gi3) June 14, 2020
+A template for an Electron app created with [electron-forge](https://www.electronforge.io/)
+from the `typescript-webpack` template with React, HMR, & Prettier added.
+
+Clone the repo, install the deps, and start the app..
+
+```bash
+yarn
+yarn start
+```
