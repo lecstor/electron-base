@@ -1,6 +1,6 @@
 {
-  "name": "photos",
-  "productName": "photos",
+  "name": "electron-base",
+  "productName": "electron-base",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
@@ -24,7 +24,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "photos"
+            "name": "electron-base"
           }
         },
         {
