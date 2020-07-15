@@ -56,7 +56,9 @@
                   "name": "main_window"
                 }
               ]
-            }
+            },
+            "port": 4325,
+            "loggerPort": 4326
           }
         ]
       ]
