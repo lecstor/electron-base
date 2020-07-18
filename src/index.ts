@@ -1,5 +1,7 @@
-import { app, BrowserWindow } from "electron";
+import Electron, { app, shell, BrowserWindow, Menu } from "electron";
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
+
+const isMac = process.platform === "darwin";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -17,8 +19,38 @@ const createWindow = (): void => {
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // https://www.electronjs.org/docs/api/menu#main-process
+  const template: (
+    | Electron.MenuItemConstructorOptions
+    | Electron.MenuItem
+  )[] = [
+    { role: "appMenu" },
+    { role: "fileMenu" },
+    { role: "editMenu" },
+    { role: "viewMenu" },
+    { role: "windowMenu" },
+    {
+      role: "help",
+      submenu: [
+        {
+          label: "Learn More",
+          click: async () => {
+            await shell.openExternal("https://electronjs.org");
+          },
+        },
+        {
+          label: "Toggle Developer Tools",
+          click() {
+            mainWindow.webContents.toggleDevTools();
+          },
+          // https://www.electronjs.org/docs/api/accelerator#accelerator
+          accelerator: isMac ? "Alt+Command+I" : "Ctrl+Shift+I",
+        },
+      ],
+    },
+  ];
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
 };
 
 // This method will be called when Electron has finished
