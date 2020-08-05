@@ -2,7 +2,7 @@ import { hot } from "react-hot-loader";
 import React, { FC } from "react";
 
 import { ChakraProvider, CSSReset } from "@chakra-ui/core";
-import theme from "@chakra-ui/theme";
+import { theme } from "./theme";
 
 import App from "./App";
 

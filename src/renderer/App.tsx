@@ -1,5 +1,14 @@
 import React, { FC } from "react";
 
-const Root: FC = () => <div>Hi from react!</div>;
+import { Box } from "@chakra-ui/core";
+
+import TitleBar from "./TitleBar";
+
+const Root: FC = () => (
+  <div>
+    <TitleBar />
+    <Box p={4}> Hi from Electron, React, and Chakra-UI!</Box>
+  </div>
+);
 
 export default Root;
