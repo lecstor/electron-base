@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Yarn install
-        run: yarn install-deps
+        run: yarn
       - name: Make
         run: yarn make
       - name: Release
